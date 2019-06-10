@@ -3,126 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>Sample document</title>
-    <link rel="canonical" href="https://www.example.com/url/to/amp/document.html">
+    <link rel="canonical" href="./regular-html-version.html">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <style amp-custom>
-        @font-face {
-          font-family: "Bitstream Vera Serif Bold";
-          src: url("https://fonts.googleapis.com/css?family=Anton&display=swap");
-        }
-
-        body {
-          font-family: "Bitstream Vera Serif Bold", serif;
-        }
-   </style>
-    <script type="application/ld+json">
-       {
-         "@context": "http://schema.org",
-         "@type": "NewsArticle",
-         "headline": "Article headline",
-         "image": [
-           "hotgirl.jpg"
-         ],
-         "datePublished": "2015-02-05T08:00:00+08:00"
-       }
-    </script>
-    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
-      <noscript>
-         <style amp-boilerplate>
-            body{
-               -webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
-         </style>
-      </noscript>
+      h1 {
+         color: red
+      }
+      p {
+         color: pink;
+      }
+    </style>
+    <style amp-boilerplate>
+      body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
+      <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
   </head>
   <body>
     <h1>Sample document</h1>
     <p>
-      <amp-img src=hotgirl.jpg width=300 height=300></amp-img>
-    </p>
-    <p>
-       <amp-img alt="AMP"
-           src="hotgirl2.png"
-           width="320"
-           height="256"
-           heights="(min-width:500px) 200px, 80%">
-      </amp-img>
-    </p>
-    <hr>
-      <div id="warning-message">Warning...</div>
-      <button on="tap:warning-message.hide">Cool, thanks!</button>
-    <p>
-      1.1. Bắt đầu với <!doctype html>
-      1.2. Chứa thẻ <html ⚡> hoặc <html amp>
-      1.3. xác định nội dung trang là AMP
-         1.3.1. Chứa thẻ <head>
-            1.3.1.1. Chứa thẻ <script async src="https://cdn.ampproject.org/v0.js"></script>
-            1.3.1.2. Tải thư viện AMP JS. – Chứa thẻ <link rel="canonical" href="$SOME_URL" /> 
-            1.3.1.3. Chứa thẻ <meta name="viewport" content="width=device-width,minimum-scale=1">
-            1.3.1.4. Chứa đoạn mã AMP đặc biệt trong thẻ <head>
-               1.3.1.4.1. script: Cấm trừ khi loại là application/ld+json hoặc text/plain. ví dụ:  <script type="application/ld+json">{ "@context": "http://schema.org", "@type": "NewsArticle", "headline": "Article headline", "image": [ "hotgirl.jpg"], "datePublished": "2015-02-05T08:00:00+08:00"}
-               1.3.1.4.2. img : Đổi thành amp-img
-               1.3.1.4.3. video : Đổi thành amp-video
-               1.3.1.4.4. audio : Đổi thành amp-audio
-               1.3.1.4.5. Đổi thành amp-iframe
-               1.3.1.4.5. style bắt buộc sử dụng thuộc tính amp-custom
-               1.3.1.4.6. Cấm một số tags : frame, frameset object   paramapplet embed
-         1.3.2. Chứa thẻ <body>
-      1.4. Classes Tên Class AMP mà bên trong Class có tiền tố -amp- và i-amp- không được phép trong AMP HTML. Cách đặt đúng trong AMP sẽ là amp-{Tên Class}. . Việc sử dụng các lớp này được cho phép và có ý nghĩa để cho phép tùy biến một số tính năng của thời gian chạy và tiện ích AMP.
-      1.5. ID Tương tự như Class Liên kết các trang với thẻ <link> Để xác định rằng một trang không phải là AMP và một trang AMP là một cặp, chúng ta thêm thông tin về trang AMP vào trang không phải AMP và ngược lại bằng cách chèn thẻ <link> vào trong <head> Thêm phần sau vào trang không phải AMP
-      1.5.1. <link rel="amphtml" href="https://www.example.com/url/to/amp/document.html">
-      1.5.2. Điều gì xảy ra nếu chúng ta chỉ có một trang? Nếu bạn chỉ có một trang, và đây là một trang AMP, bạn phải thêm link với thuộc tính rel=”canonical”
-      <link rel="canonical" href="https://www.example.com/url/to/canonical/document.html">
-      1.5.3. Tên thuộc tính bắt đầu bằng on(như onclickhoặc onmouseover) không được phép trong AMP HTML. Thuộc tính có tên bằng chữ on(không có hậu tố) được cho phép. Các thuộc tính liên quan đến XML, chẳng hạn như xmlns, xml: lang, xml: base và xml: space không được phép trong AMP HTML. Các thuộc tính AMP nội bộ có tiền tố i-amp-không được phép trong AMP HTML.
-      1.5.6. @-rules sau được phép trong biểu định kiểu: @font-face, @keyframes, @media, @page, @supports. @importsẽ không được phép Những người khác có thể được thêm vào trong tương lai.
-      1.5.7. Author stylesheets: Tác giả có thể thêm các kiểu tùy chỉnh vào tài liệu bằng một <style amp-custom>thẻ duy nhất trong phần đầu của tài liệu hoặc kiểu nội tuyến. @keyframesquy tắc được cho phép trong <style amp-custom>. Tuy nhiên, nếu chúng có quá nhiều trong số chúng, bạn nên đặt chúng vào <style amp-keyframes>thẻ bổ sung , phải được đặt ở cuối tài liệu AMP. Để biết chi tiết, hãy xem phần biểu định kiểu Keyframes của tài liệu này.
-      1.5.8. Properties: MP chỉ cho phép chuyển đổi và hình ảnh động của các thuộc tính có thể được tăng tốc GPU trong các trình duyệt phổ biến.  Chúng tôi hiện tại danh sách trắng : opacity, transform(cũng như -vendorPrefix-transform).
-      Trong các ví dụ sau đây <property> cần phải nằm trong danh sách trắng ở trên.
-      transition <property> (cũng như -vendorPrefix-transition)
-      @keyframes name { from: {<property>: value} to {<property: value>} }(cũng như @-vendorPrefix-keyframes)
-      overflow(và overflow-y, overflow-x) có thể không được đặt kiểu là Tự động hóa hoặc hoặc cuộn Cuộn. Không có yếu tố nào do người dùng xác định trong tài liệu AMP có thể có thanh cuộn.
-      1.5.9. Keyframes stylesheet: Ngoài <style amp-custom>, các tác giả cũng có thể thêm <style amp-keyframes>thẻ, được cho phép cụ thể cho hình ảnh động của khung hình chính. 
-      Các hạn chế sau áp dụng cho <style amp-keyframes>thẻ: 
-      1.5.9.1. Chỉ có thể được đặt làm con cuối cùng của <body>phần tử tài liệu . 
-      1.5.9.2. Có thể chứa chỉ @keyframes, @media, @supportsquy tắc và sự kết hợp của họ. 
-      1.5.9.3. Có thể không lớn hơn 500.000 byte.
-      Ví dụ: <style amp-keyframes> @keyframes anim1 {} @media (min-width: 600px) { @keyframes anim1 {}}</style>
-      1.6.1. Custom fonts: <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-      Các nguồn gốc sau đây hiện được phép phục vụ:
-      Fonts.com: https://fast.fonts.net
-      1.6.1.1. Google Fonts: https://fonts.googleapis.com
-      1.6.1.2. Font Awesome: https://maxcdn.bootstrapcdn.com
-      1.6.1.3. Typekit: https://use.typekit.net/kitId.css (replace kitId accordingly)
-      1.6.2. AMP runtime
-      Thời gian chạy AMP được tải thông qua <script src="https://cdn.ampproject.org/v0.js"></script>thẻ bắt buộc trong tài liệu AMP <head>.
-      1.6.3. Actions and events in AMP xem link. https://github.com/ampproject/amphtml/blob/master/spec/amp-actions-and-events.md
-      1.6.4. Extended components: Các thành phần mở rộng được tải bằng cách bao gồm một <script>thẻ trong phần đầu của tài liệu như thế này:
-      < script  async  custom-element = "amp-carousel"  src = "https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></ script >
-      1.6.4.1. URL cho các thành phần mở rộng có dạng: https://cdn.ampproject.org/$RUNTIME_VERSION/$ELEMENT_NAME-$ELEMENT_VERSION.js
-      1.6.4.2. Extended templates: 
-      Các mẫu mở rộng không được gửi cùng với thời gian chạy AMP và phải được tải xuống giống như với các phần tử mở rộng. Các thành phần mở rộng được tải bằng cách bao gồm một <script>thẻ trong phần đầu của tài liệu như thế này:
-      1.6.4.2.1. <script  async  custom-template = "amp-mustache"  src = "https://cdn.ampproject.org/v0/amp-mustache-0.2.js" > </ script >
-      1.6.4.2.2. Các mẫu được khai báo trong tài liệu như sau:
-      <template type="amp-mustache" id="template1">
-         Hello {{you}}!
-      </template>
-      1.6.4.2.3. URL cho các thành phần mở rộng có dạng:
-      https://cdn.ampproject.org/$RUNTIME_VERSION/$TEMPLATE_TYPE-$TEMPLATE_VERSION.js
-      1.6.5. SVG
-      Hiện tại, các yếu tố SVG sau đây được cho phép:
-      basics: "g", "glyph", "glyphRef", "image", "marker", "metadata", "path", "solidcolor", "svg", "switch", "view"
-      shapes: "circle", "ellipse", "line", "polygon", "polyline", "rect"
-      text: "text", "textPath", "tref", "tspan"
-      rendering: "clipPath", "filter", "hkern", "linearGradient", "mask", "pattern", "radialGradient", "vkern"
-      special: "defs" (all children above are allowed here), "symbol", "use"
-      filter: "feColorMatrix", "feComposite", "feGaussianBlur", "feMerge", "feMergeNode", "feOffset", "foreignObject"
-      ARIA: "desc", "title"
-      1.6.6
-      1.6.6.1. Nếu tài liệu AMP tồn tại là đại diện thay thế của tài liệu chính tắc, thì tài liệu chính tắc sẽ trỏ đến tài liệu AMP thông qua linkthẻ có quan hệ "amphtml" .
-      <link  rel = "amphtml"  href = "https://www.example.com/url/to/amp/document.html" >
-      1.6.6.2. Bản thân tài liệu AMP dự kiến ​​sẽ quay trở lại tài liệu chính tắc của nó thông qua một linkthẻ có quan hệ "chính tắc".
-      < link  rel = "canonical"  href = "https://www.example.com/url/to/canonical/document.html" >
-      (Nếu một tài nguyên đồng thời là AMP và tài liệu chính tắc, thì mối quan hệ chính tắc sẽ chỉ đến chính nó - không yêu cầu "amphtml".)
-      </p>
+      Some text
+   </p>
+   <p>
+      <amp-img src=hotgirl.jpg height=300></amp-img>
+   </p>
   </body>
 </html>
